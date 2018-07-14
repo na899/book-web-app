@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" const="text/html;charset=UTF-8" />
+    <title>Books &hearts;</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+
+<body style="margin: auto; text-align: center">
+    <br>
+    <br>
+
+    <strong>Title:</strong><%=item.volumeInfo.title %>
+    <br>
+
+    <strong>Author:</strong><%=item.volumeInfo.authors %>
+    <br>
+    <strong>Description:</strong><%=item.volumeInfo.description %>
+    <%if(item.volumeInfo.imageLinks!=undefined){%>
+        <br>
+        <br>
+        <img style="border-style: solid;" src="<%=item.volumeInfo.imageLinks.thumbnail %>">
+        <%}%>
+
+            <br>
+
+            <br>
+            <form method="post" action="/like" style="display: inline-block;">
+                <input style="display: none" type="text" name="id" value="<%=item.id%>">
+                <button>Like </button>
+            </form>
+            <form method="post" action="/fav" style="display: inline-block;">
+                <input style="display: none" type="text" name="id" value="<%=item.id%>">
+                <button> Mark favourite </button>
+            </form>
+            <form method="post" action="/shelf" style="display: inline-block;">
+                <input style="display: none" type="text" name="id" value="<%=item.id%>">
+                <button>Add to bookshelf</button>
+            </form>
+
+            <span>  </span>
+            <input list="status" name="status" placeholder="Reading status">
+            <datalist id="status">
+                <option value="Currently reading">
+                    <option value="Finished reading">
+                        <option value="Want to read">
+            </datalist>
+            <br>
+
+</body>
+
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" const="text/html;charset=UTF-8" />
+    <title>Books &hearts;</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+  </head>
+
+  <body >
+    <br><br>
+  <form id="search" method='post' action="/">
+    <input type="text" name="title" id='title' placeholder="Search by Title, Author, Publisher, ISBN or subject." style="width: 500px;text-align: center; height: 20px;" >
+    <input type="submit" name="search" value="Search book">
+    
+  </form><br>
+  
+  <ul style="list-style: none;">
+    <% for(i=0;i < items.length;i++){%>
+    
+     
+      <li id='<%=items[i].id%>' >
+      <strong><%=items[i].volumeInfo.title %></strong> by <strong><%=items[i].volumeInfo.authors %></strong>
+      <%if(items[i].volumeInfo.imageLinks!=undefined){%>
+      <br><br>
+      <img style="border-style: solid;" src="<%=items[i].volumeInfo.imageLinks.thumbnail %>">
+      <%}%>
+      <form method="post" action="/book" style="display: inline-block;"> <input style="display: none" type="text" name="index" value="<%=i%>"><button> View details </button></form>
+     
+      </li>
+    
+    <br>
+
+  <%}%>
+  </ul>
+  <script type="text/javascript" src="script.js"></script> 
+  </body>
+</html>

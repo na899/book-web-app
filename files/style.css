@@ -1,0 +1,28 @@
+
+
+body{
+	margin: auto;
+    text-align: center;
+	background-color: #FFFFFF;
+}
+
+
+
+li{ text-align: left;
+	padding: 10px;
+	border-style: solid;
+	background-color: #EEEEEE ;
+}
+
+li:hover{
+	background-color: #AAAAAA;
+
+}
+
+
+a {
+        color: black;
+        padding-left: 5px;
+        text-decoration: none;
+
+}
